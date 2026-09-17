@@ -34,12 +34,14 @@
 };
 
 &pointing_listener {
+    // Cornix 移植版キーマップ対応:
+    //   layer 1 = Symbols なので zip_temp_layer(オートマウス)は削除
+    //   スクロールは layer 6 (&lt 6 DEL) に変更
     input-processors =
-        <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
-        <&zip_temp_layer 1 500>;
+        <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
 
     scroller {
-        layers = <4>;
+        layers = <6>;
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_to_scroll_mapper>,
